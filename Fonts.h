@@ -14,6 +14,8 @@ extern "C" {
 #define CASE_CHAR	0x84
 #define RETURN_MENU 0x86
 
+// Harris sucks balls
+
 extern const uint8_t ADAFont[];
 extern const uint8_t HFont1[];
 
