@@ -15,10 +15,10 @@ public:
         lThickness = 1;
     }
 
-    Line(Node Start, Node End){
+    Line(Node Start, Node End, float Thickness){
         lStart = Start;
         lEnd = End;
-        lThickness = 1;
+        lThickness = Thickness;
     }
 
     Line& operator=(const Line &L){

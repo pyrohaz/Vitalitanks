@@ -17,7 +17,7 @@ Game *G;
 #define AMNT_KEYS   64
 bool Keys[AMNT_KEYS] = {false};
 
-bool Mouse = false;
+bool MousePress, MouseRelease = false;
 uint32_t MouseXP, MouseYP;
 uint32_t MouseXR, MouseYR;
 
@@ -71,6 +71,7 @@ bool MainWindow::event(QEvent *event){
         case Qt::Key_Return: Keys[5] = true; break;
         case Qt::Key_Backspace: Keys[33] = true; break;
         case Qt::Key_Shift: Keys[34] = true; break;
+        case Qt::Key_Escape: Keys[35] = true; break;
         default: //6->31
             if(KEvent->key()>=0x41 && KEvent->key()<=0x5a){
                 Keys[KEvent->key()-(0x41-6)] = true;
@@ -88,6 +89,7 @@ bool MainWindow::event(QEvent *event){
         case Qt::Key_Return: Keys[5] = false; break;
         case Qt::Key_Backspace: Keys[33] = false; break;
         case Qt::Key_Shift: Keys[34] = false; break;
+        case Qt::Key_Escape: Keys[35] = false; break;
         default://6->31
             if(KEvent->key()>=0x41 && KEvent->key()<=0x5a){
                 Keys[KEvent->key()-(0x41-6)] = false;
@@ -97,14 +99,14 @@ bool MainWindow::event(QEvent *event){
     else if(event->type() == QEvent::MouseButtonPress){
         QMouseEvent *MEvent = static_cast<QMouseEvent *> (event);
 
-        Mouse = true;
+        MousePress = true;
         MouseXP = MEvent->x();
         MouseYP = MEvent->y();
     }
     else if(event->type() == QEvent::MouseButtonRelease){
         QMouseEvent *MEvent = static_cast<QMouseEvent *> (event);
 
-        Mouse = false;
+        MouseRelease = true;
         MouseXR = MEvent->x();
         MouseYR = MEvent->y();
     }
