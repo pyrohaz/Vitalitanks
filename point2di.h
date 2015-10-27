@@ -66,6 +66,21 @@ public:
     void setY(int32_t Y){ lY = Y; }
     void setXY(int32_t X, int32_t Y){lX = X; lY = Y;}
 
+    int32_t Distance(Point2DI &P){
+        int32_t D;
+        D = sqrtf((P.lX-lX)*(P.lX-lX) + (P.lY-lY)*(P.lY-lY));
+
+        return D;
+    }
+
+    Point2DI& Midpoint(Point2DI &P){
+        Point2DI T;
+
+        T.setXY((P.lX+lX)/2, (P.lY+lY)/2);
+
+        return T;
+    }
+
     void Rotate(Point2DI P, float Deg){
         lX -= P.lX;
         lY -= P.lY;

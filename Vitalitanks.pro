@@ -22,6 +22,9 @@ HEADERS  += mainwindow.h \
     Fonts.h \
     game.h \
     lib2d.h \
-    point2di.h
+    point2di.h \
+    node.h \
+    line.h \
+    material.h
 
 FORMS    += mainwindow.ui
